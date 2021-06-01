@@ -34,11 +34,11 @@ Very Easy Bot || Telegaram Bot ||Simple Welcome Message Bot|| Mo Tech YouTube Ch
 
 <p align="center">
   <a href="https://github.com/MRK-YT/MT-WELCOME-BOT/stargazers">
-    <img src="https://img.shields.io/github/stars/MRK-YT/MT-FilesStoreBot?style=social">
+    <img src="https://img.shields.io/github/stars/MRK-YT/MT-WELCOME-BOT?style=social">
 
  </a>
   
-  <a href="https://github.com/MRK-YT/MT-FilesStoreBot/fork">
+  <a href="https://github.com/MRK-YT/MT-WELCOME-BOT/fork">
     <img src="https://img.shields.io/github/forks/MRK-YT/MT-WELCOME-BOT?label=Fork&style=social">
 
   </a>  
