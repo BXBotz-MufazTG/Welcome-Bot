@@ -56,4 +56,4 @@ Tutorial Video
 ```
 Welcome Message Bot👇
 ```
-👉Tutorial Video 👉 [![Tutorial Video](https://img.shields.io/badge/Tutorial-Video-red?style=flat&logo=YouTube)](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ) 
+👉Tutorial Video 👉 [![Tutorial Video](https://img.shields.io/badge/Tutorial-Video-red?style=flat&logo=YouTube)](https://youtu.be/0a5nnEj5BjY) 
