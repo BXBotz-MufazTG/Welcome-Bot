@@ -24,4 +24,4 @@ dp(CommandHandler('start',start))
 dp(CommandHandler('help',help))
 
 updater.start_polling()
-updater.idle
+updater.idle()
