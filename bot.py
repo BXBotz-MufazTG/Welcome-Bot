@@ -9,7 +9,7 @@ def start(updater,context):
  updater.message.reply_text('''👋Hi Bro or Sis Iam Welcome Messanger bot\n\n👤Any Doubt - @Mo_Tech_YT\n🔊Bot Updates - @Mo_Tech_YT\n\n😮More Details Clcik /help Button''')
 
 def help(updater,context):
- updater.message.reply_text("👇English👇\n\n⚕️ Add Me Your Group\n⚕️ Make me an admin\n\n👇Malayalam👇\n\n⚕️അത്യം എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പിൽ ആഡ് ആകൂ\n⚕️ എന്നെ നിങളീടെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആകൂ\n\n[🖥️HOW TO OWN🖥️](https://youtu.be/0a5nnEj5BjY)")
+ updater.message.reply_text("👇English👇\n\n⚕️ Add Me Your Group\n⚕️ Make me an admin\n\n👇Malayalam👇\n\n⚕️അത്യം എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പിൽ ആഡ് ആകൂ\n⚕️ എന്നെ നിങളീടെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആകൂ\n\n🖥️HOW TO OWN🖥️\nhttps://youtu.be/0a5nnEj5BjY")
  
 
 def add_group(update: Update, context: CallbackContext):
