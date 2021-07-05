@@ -1,29 +1,35 @@
-from telegram import Update
-from telegram.ext import Updater , CommandHandler, CallbackQueryHandler, CallbackContext,Filters,MessageHandler
 import os
+from pyrogram import Client, filters
 
-Token =os.environ.get("MT_BOT_TOKEN",None)
-updater = Updater( Token ,use_context = True )
+Motechyt = Client(
+            "MT ID BOT",
+            bot_token = os.environ["BOT_TOKEN"],
+            api_id = int(os.environ["API_ID"]),
+            api_hash = os.environ["API_HASH"]
+)
 
-def start(updater,context):
- updater.message.reply_text('''👋Hi Bro or Sis Iam Welcome Messanger bot\n\n👤Any Doubt - @Mo_Tech_YT\n🔊Bot Updates - @Mo_Tech_YT\n\n😮More Details Clcik /help Button''')
+@Motechyt.on_message(filters.private & filters.command("start"))
+async def start(bot, update):  
+    text = f"""
+<b> 👋Hello {update.from_user.mention}</b>
+<b>I CAN GET ANY PUBLIC AND PRIVATE CHANNEL ID
+FORWARD A MESSAGE FROM YOUR CHANNEL TO GET YOUR CHANNEL ID.
+CLICK /ID GET YOUR ID
+CLICK /INFO GET YOUR TELEGRAM INFO </b>
+"""
+    await update.reply_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+  )
 
-def help(updater,context):
- updater.message.reply_text("👇English👇\n\n⚕️Add ME TO YOUR GROUP\n⚕️MAKE ME AS ADMIN ON GROUP\n\n👇Malayalam👇\n\n⚕️ആദ്യം എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പിൽ ആഡ് ആകൂ\n⚕️എന്നെ നിങളുടെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആകൂ\n\n🖥️HOW TO OWN🖥️\nhttps://youtu.be/0a5nnEj5BjY")
- 
+@Motechyt.on_message(filters.text & filters.group & ~filters.bot)
+async def add_group(bot, update):
+      text = """Hi"""
+      await update.reply_text(        
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    )
 
-def add_group(update: Update, context: CallbackContext):
-    for member in update.message.new_chat_members, update.message.new_chat_title:
-        update.message.reply_text(f'Hello {update.from_user.mention} , Welcome to ln support {update.chat_name} Thank you for Joining  ')
-
-
-add_group_handle = MessageHandler(Filters.status_update.new_chat_title, add_group)
-add_group_handle = MessageHandler(Filters.status_update.new_chat_members, add_group)
-updater.dispatcher.add_handler(add_group_handle)
-
-dp =updater.dispatcher.add_handler
-dp(CommandHandler('start',start))
-dp(CommandHandler('help',help))
-
-updater.start_polling()
-updater.idle()
+Motechyt.run()
