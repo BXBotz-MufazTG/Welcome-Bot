@@ -18,12 +18,4 @@ async def start(bot, update):
         disable_web_page_preview=True
   )
 
-@Motechyt.on_message(filters.private & filters.user)
-async def user(bot, new_chat_members):
-      text = """Hi"""
-      await update.reply_text(        
-        text=text,
-        disable_web_page_preview=True
-    )
-
 Motechyt.run()
