@@ -18,8 +18,8 @@ async def start(bot, update):
         disable_web_page_preview=True
   )
 
-@Motechyt.on_message(filters.private & filters.welcome)
-async def welcome(bot, new_chat_members):
+@Motechyt.on_message(filters.private & filters.add_group)
+async def add_group(bot, new_chat_members):
       text = """Hi"""
       await update.reply_text(        
         text=text,
