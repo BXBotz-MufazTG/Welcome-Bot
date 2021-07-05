@@ -12,17 +12,13 @@ Motechyt = Client(
 async def start(bot, update):  
     text = f"""
 <b> 👋Hello {update.from_user.mention}</b>
-<b>I CAN GET ANY PUBLIC AND PRIVATE CHANNEL ID
-FORWARD A MESSAGE FROM YOUR CHANNEL TO GET YOUR CHANNEL ID.
-CLICK /ID GET YOUR ID
-CLICK /INFO GET YOUR TELEGRAM INFO </b>
 """
     await update.reply_text(
         text=text,
         disable_web_page_preview=True
   )
 
-@Motechyt.on_message(new_chat_members & new_chat_members & ~new_chat_members)
+@Motechyt.on_message(welcome.text & welcome.group & ~new_chat_members)
 async def add_group(bot, update):
       text = """Hi"""
       await update.reply_text(        
