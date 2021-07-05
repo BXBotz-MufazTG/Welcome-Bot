@@ -20,7 +20,6 @@ def add_group(update: Update, context: CallbackContext):
 add_group_handle = MessageHandler(Filters.status_update.new_chat_title, add_group)
 add_group_handle = MessageHandler(Filters.status_update.new_chat_members, add_group)
 updater.dispatcher.add_handler(add_group_handle)
-updater.dispatcher.add_handler(add_group_handle)
 
 dp =updater.dispatcher.add_handler
 dp(CommandHandler('start',start))
