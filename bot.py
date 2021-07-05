@@ -19,8 +19,7 @@ CLICK /INFO GET YOUR TELEGRAM INFO </b>
 """
     await update.reply_text(
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
   )
 
 @Motechyt.on_message(filters.text & filters.group & ~filters.bot)
@@ -28,8 +27,7 @@ async def add_group(bot, update):
       text = """Hi"""
       await update.reply_text(        
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
+        disable_web_page_preview=True
     )
 
 Motechyt.run()
