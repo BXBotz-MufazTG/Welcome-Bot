@@ -22,7 +22,7 @@ CLICK /INFO GET YOUR TELEGRAM INFO </b>
         disable_web_page_preview=True
   )
 
-@Motechyt.on_message(filters.text & filters.group & ~filters.bot)
+@Motechyt.on_message(new_chat_members & new_chat_members & ~new_chat_members)
 async def add_group(bot, update):
       text = """Hi"""
       await update.reply_text(        
