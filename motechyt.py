@@ -10,7 +10,7 @@ START_MESSAGE = """Hi"""
 
 
 def start(updater,context):
- updater.message.reply_text("{}".format(START_MESSAGE))
+ updater.message.reply_text('''{}'''.format(START_MESSAGE))
 
 def help(updater,context):
  updater.message.reply_text("👇English👇\n\n⚕️Add ME TO YOUR GROUP\n⚕️MAKE ME AS ADMIN ON GROUP\n\n👇Malayalam👇\n\n⚕️ആദ്യം എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പിൽ ആഡ് ആകൂ\n⚕️എന്നെ നിങളുടെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആകൂ\n\n🖥️HOW TO OWN🖥️\nhttps://youtu.be/0a5nnEj5BjY")
