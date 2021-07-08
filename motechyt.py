@@ -3,6 +3,8 @@ from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, TelegramError, Update
 import os
 import pickledb
+from telegram.ext.dispatcher import run_async
+from html import escape
 
 Token =os.environ.get("MT_BOT_TOKEN",None)
 updater = Updater( Token ,use_context = True )
@@ -77,7 +79,7 @@ def set_welcome(update, context):
 dp = updater.dispatcher
 dp.add_handler(CommandHandler("start", start))
 dp.add_handler(CommandHandler("welcome", set_welcome))
-dp.add_handler(MessageHandler(Filters.status_update))
+dp.add_handler(MessageHandler(Filters.status_update, empty_message))
 dp.add_error_handler(error)
 
 updater.start_polling()
