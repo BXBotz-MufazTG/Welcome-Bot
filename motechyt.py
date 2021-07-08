@@ -51,7 +51,6 @@ updater.dispatcher.add_handler(welcome_handle)
 
 dp =updater.dispatcher.add_handler
 dp(CommandHandler('start',start))
-dp(CommandHandler('help',set_welcome))
 
 updater.start_polling()
 updater.idle()
