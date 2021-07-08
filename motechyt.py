@@ -43,37 +43,8 @@ def welcome(update, context, new_member):
     # Replace placeholders and send message
     text = text.replace("$username", new_member.first_name)
     text = text.replace("$title", message.chat.title)
-    send_async(context, chat_id=chat_id, text=text, parse_mode=ParseMode.HTML)
+    
 
-
-def set_welcome(update, context):
-    """ Sets custom welcome message """
-
-    chat_id = update.message.chat.id
-
-    # Check admin privilege and group context
-    if not check(update, context):
-        return
-
-    # Split message into words and remove mentions of the bot
-    message = update.message.text.partition(" ")[2]
-
-    # Only continue if there's a message
-    if not message:
-        send_async(
-            context,
-            chat_id=chat_id,
-            text="You need to send a message, too! For example:\n"
-            "<code>/welcome Hello $username, welcome to "
-            "$title!</code>",
-            parse_mode=ParseMode.HTML,
-        )
-        return
-
-    # Put message into database
-    db.set(str(chat_id), message)
-
-    send_async(context, chat_id=chat_id, text="Got it!")
 
 welcome_handle = MessageHandler(Filters.status_update.new_chat_members, welcome)
 updater.dispatcher.add_handler(welcome_handle)
