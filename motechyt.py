@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
-from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, TelegramError, Update
 import os
 import pickledb
 
