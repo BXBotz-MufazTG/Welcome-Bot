@@ -2,40 +2,86 @@ from telegram import Update
 from telegram.ext import Updater , CommandHandler, CallbackQueryHandler, CallbackContext,Filters,MessageHandler
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 import os
+import pickledb
 
 Token =os.environ.get("MT_BOT_TOKEN",None)
 updater = Updater( Token ,use_context = True )
 
-START_MESSAGE = """Hi {}, {}"""
+db = pickledb.load("bot.db", True)
 
-HELP_TEXT = "HI"
+if not db.get("chats"):
+    db.set("chats", [])
+
+
+START_MESSAGE = """Hi"""
+
 
 def start(updater,context):
  updater.message.reply_text(START_MESSAGE.format(escape_markdown(first_name), escape_markdown(bot.first_name),reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text=" 👥 channel.",url="https://telegram.dog/Mai_bOTs")],  
-                                                [InlineKeyboardButton(text="Creater",url="https://t.me/No_OnE_Kn0wS_Me"),InlineKeyboardButton(text="Mai Source",url="https://github.com/No-OnE-Kn0wS-Me/Filterbot")]]),disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
+                                                [InlineKeyboardButton(text="Creater",url="https://t.me/No_OnE_Kn0wS_Me"),InlineKeyboardButton(text="Mai Source",url="https://github.com/No-OnE-Kn0wS-Me/Filterbot")]]),disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)                           
 
 
-def help(updater,context):
- updater.message.reply_text(
-                            "{}".format(HELP_TEXT),
-                            reply_markup=InlineKeyboardMarkup(
-                          [[InlineKeyboardButton(text="How To Own", url="https://t.me/Mrk_yt")], [InlineKeyboardButton(text="Join", url="t.me/PR0FESS0R_99")]]),
-                            disable_web_page_preview=True,
-                            parse_mode=ParseMode.MARKDOWN)
-                           
- 
+def welcome(update, context, new_member):
+    """ Welcomes a user to the chat """
 
-def add_group(update: Update, context: CallbackContext):
-    for member in update.message.new_chat_members:
-        update.message.reply_text(f'👋Hello {member.full_name} , Welcome to ln Support\n\n💖Thank💖You💖For💖Joining💖'.format(Team), reply_markup=InlineKeyboardMarkup( [[InlineKeyboardButton(text="How To Own", url="https://t.me/Mrk_yt")], [InlineKeyboardButton(text="Join", url="t.me/PR0FESS0R_99")]]), disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
+    message = update.message
+    chat_id = message.chat.id
+    logger.info(
+        "%s joined to chat %d (%s)",
+        escape(new_member.first_name),
+        chat_id,
+        escape(message.chat.title),
+    )
 
-add_group_handle = MessageHandler(Filters.status_update.new_chat_members, add_group)
-updater.dispatcher.add_handler(add_group_handle)
+    # Pull the custom message for this chat from the database
+    text = db.get(str(chat_id))
 
-dp =updater.dispatcher.add_handler
-dp(CommandHandler('start',start))
-dp(CommandHandler('help',help))
+    # Use default message if there's no custom one set
+    if text is None:
+        text = "Hello $username! Welcome to $title 😊"
+
+    # Replace placeholders and send message
+    text = text.replace("$username", new_member.first_name)
+    text = text.replace("$title", message.chat.title)
+    send_async(context, chat_id=chat_id, text=text, parse_mode=ParseMode.HTML)
+
+
+def set_welcome(update, context):
+    """ Sets custom welcome message """
+
+    chat_id = update.message.chat.id
+
+    # Check admin privilege and group context
+    if not check(update, context):
+        return
+
+    # Split message into words and remove mentions of the bot
+    message = update.message.text.partition(" ")[2]
+
+    # Only continue if there's a message
+    if not message:
+        send_async(
+            context,
+            chat_id=chat_id,
+            text="You need to send a message, too! For example:\n"
+            "<code>/welcome Hello $username, welcome to "
+            "$title!</code>",
+            parse_mode=ParseMode.HTML,
+        )
+        return
+
+    # Put message into database
+    db.set(str(chat_id), message)
+
+    send_async(context, chat_id=chat_id, text="Got it!")
+
+  
+dp = updater.dispatcher
+dp.add_handler(CommandHandler("start", start))
+dp.add_handler(CommandHandler("welcome", set_welcome))
+dp.add_handler(MessageHandler(Filters.status_update, empty_message))
+dp.add_error_handler(error)
 
 updater.start_polling()
 updater.idle()
