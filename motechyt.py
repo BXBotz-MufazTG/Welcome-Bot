@@ -75,7 +75,7 @@ def set_welcome(update, context):
 
     send_async(context, chat_id=chat_id, text="Got it!")
 
-welcome_handle = MessageHandler(Filters.status_update.new_chat_members, add_group)
+welcome_handle = MessageHandler(Filters.status_update.new_chat_members, welcome)
 updater.dispatcher.add_handler(welcome_handle)
 
 dp =updater.dispatcher.add_handler
