@@ -11,7 +11,7 @@ START_MESSAGE = """Hi {}, {}"""
 HELP_TEXT = "HI"
 
 def start(updater,context):
- update.effective_message.reply_photo(START_MESSAGE.format(escape_markdown(first_name), escape_markdown(bot.first_name),reply_markup=InlineKeyboardMarkup(
+ updater.message.reply_text(START_MESSAGE.format(escape_markdown(first_name), escape_markdown(bot.first_name),reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text=" 👥 channel.",url="https://telegram.dog/Mai_bOTs")],  
                                                 [InlineKeyboardButton(text="Creater",url="https://t.me/No_OnE_Kn0wS_Me"),InlineKeyboardButton(text="Mai Source",url="https://github.com/No-OnE-Kn0wS-Me/Filterbot")]]),disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
 
