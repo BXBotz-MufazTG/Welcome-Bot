@@ -25,7 +25,7 @@ def help(updater,context):
                             "{}".format(HELP_TEXT),
                             reply_markup=InlineKeyboardMarkup(
                           [[InlineKeyboardButton(text="How To Own", url="https://t.me/Mrk_yt")], [InlineKeyboardButton(text="Join", url="t.me/PR0FESS0R_99")]]),
-                            disable_web_page_previwe=True,
+                            disable_web_page_preview=True,
                             parse_mode=ParseMode.MARKDOWN)
                            
  
