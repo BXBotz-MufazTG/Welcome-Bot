@@ -77,7 +77,7 @@ def set_welcome(update, context):
 dp = updater.dispatcher
 dp.add_handler(CommandHandler("start", start))
 dp.add_handler(CommandHandler("welcome", set_welcome))
-dp.add_handler(MessageHandler(Filters.status_update, empty_message))
+dp.add_handler(MessageHandler(Filters.status_update))
 dp.add_error_handler(error)
 
 updater.start_polling()
