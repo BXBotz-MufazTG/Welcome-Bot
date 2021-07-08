@@ -23,7 +23,7 @@ def start(updater,context):
 def help(updater,context):
  updater.message.reply_text(
                             "{}".format(HELP_TEXT),
-                            replay_markup=InlineKeyboardMarkup(
+                            reply_markup=InlineKeyboardMarkup(
                           [[InlineKeyboardButton(text="How To Own", url="https://t.me/Mrk_yt")], [InlineKeyboardButton(text="Join", url="t.me/PR0FESS0R_99")]]),
                             disable_web_page_previwe=True,
                             parse_mode=ParseMode.MARKDOWN)
