@@ -12,6 +12,7 @@ START_MESSAGE = """Hi {}"""
 HELP_TEXT = "HI"
 
 def start(updater,context):
+ first_name = update.effective_user.first_name
  updater.message.reply_text(
                             '''{START_MESSAGE}'''.format({update.from_user.mention}),
                            reply_markup=InlineKeyboardMarkup(
