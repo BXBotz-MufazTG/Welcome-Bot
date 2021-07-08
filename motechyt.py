@@ -1,4 +1,4 @@
-from payogram import Client, filters
+from pyrogram import Client, filters
 from telegram import Update
 from telegram.ext import Updater , CommandHandler, CallbackQueryHandler, CallbackContext,Filters,MessageHandler
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
