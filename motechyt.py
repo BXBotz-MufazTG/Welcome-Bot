@@ -75,12 +75,12 @@ def set_welcome(update, context):
 
     send_async(context, chat_id=chat_id, text="Got it!")
 
-  
-dp = updater.dispatcher
-dp.add_handler(CommandHandler("start", start))
-dp.add_handler(CommandHandler("welcome", set_welcome))
-dp.add_handler(MessageHandler(Filters.status_update, empty_message))
-dp.add_error_handler(error)
+welcome_handle = MessageHandler(Filters.status_update.new_chat_members, add_group)
+updater.dispatcher.add_handler(welcome_handle)
+
+dp =updater.dispatcher.add_handler
+dp(CommandHandler('start',start))
+dp(CommandHandler('help',set_welcome))
 
 updater.start_polling()
 updater.idle()
