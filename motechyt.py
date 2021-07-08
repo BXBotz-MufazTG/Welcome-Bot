@@ -8,6 +8,7 @@ updater = Updater( Token ,use_context = True )
 
 START_MESSAGE = """Hi"""
 
+HELP_TEXT = "HI"
 
 def start(updater,context):
  updater.message.reply_text(
@@ -20,7 +21,13 @@ def start(updater,context):
    
 
 def help(updater,context):
- updater.message.reply_text("👇English👇\n\n⚕️Add ME TO YOUR GROUP\n⚕️MAKE ME AS ADMIN ON GROUP\n\n👇Malayalam👇\n\n⚕️ആദ്യം എന്നെ നിങ്ങളുടെ ഗ്രൂപ്പിൽ ആഡ് ആകൂ\n⚕️എന്നെ നിങളുടെ ഗ്രൂപ്പിൽ അഡ്മിൻ ആകൂ\n\n🖥️HOW TO OWN🖥️\nhttps://youtu.be/0a5nnEj5BjY")
+ updater.message.reply_text(
+                            "{}".format(HELP_TEXT),
+                            replay_markup=InlineKeyboardMarkup(
+                          [[InlineKeyboardButton(text="How To Own", url="https://t.me/Mrk_yt")], [InlineKeyboardButton(text="Join", url="t.me/PR0FESS0R_99)]]),
+                            disable_web_page_previwe=Ture,
+                            prase_mode=PraseMode.MARKDOWN)
+                           
  
 
 def add_group(update: Update, context: CallbackContext):
