@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater , CommandHandler, CallbackQueryHandler, CallbackContext,Filters,MessageHandler
+from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton
 import os
 import pickledb
