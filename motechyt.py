@@ -13,7 +13,7 @@ HELP_TEXT = "HI"
 
 def start(updater,context):
  updater.message.reply_text(
-                            '''{START_MESSAGE}'''.format(update.from_user.mention),
+                            '''{START_MESSAGE}'''.format({update.from_user.mention}),
                            reply_markup=InlineKeyboardMarkup(
                           [[InlineKeyboardButton(text=" 👥 channel.",url="https://telegram.dog/Mai_bOTs")],  
                            [InlineKeyboardButton(text="Creater",url="https://t.me/No_OnE_Kn0wS_Me"),InlineKeyboardButton(text="Mai Source",url="https://github.com/No-OnE-Kn0wS-Me/Filterbot")]]),
