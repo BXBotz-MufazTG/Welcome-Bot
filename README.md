@@ -1,4 +1,4 @@
-# MT-WELCOME-BOT
+# Welcome Bot
 
 A Telegram Welcome Bot
 
@@ -8,9 +8,3 @@ A Telegram Welcome Bot
 
 # Variables
 - `BOT_TOKEN` - Get From @BotFather
-
-# Credits
-
-🤖 Update Channel
-
-[BX Botz](https://www.telegram.me/BX_Botz)
