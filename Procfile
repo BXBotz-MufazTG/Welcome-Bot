@@ -1,1 +1,1 @@
-worker: python3 motechyt.py
+worker: python3 bxbotz.py
