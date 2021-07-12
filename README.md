@@ -13,4 +13,4 @@ A Telegram Welcome Bot
 
 🤖 Update Channel
 
-[![BX Botz](https://www.telegram.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BXBots/MT-WELCOME-BOT)
+[![BX Botz](https://www.telegram.me/BX_Botz)
