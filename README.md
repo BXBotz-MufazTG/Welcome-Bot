@@ -8,3 +8,5 @@ A Telegram Welcome Bot
 
 # Variables
 - `BOT_TOKEN` - Get From @BotFather
+
+- Credits
