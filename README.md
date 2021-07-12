@@ -13,4 +13,4 @@ A Telegram Welcome Bot
 
 🤖 Update Channel
 
-[![BX Botz](https://www.telegram.me/BX_Botz)
+[BX Botz](https://www.telegram.me/BX_Botz)
