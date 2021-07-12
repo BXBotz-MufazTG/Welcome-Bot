@@ -9,4 +9,8 @@ A Telegram Welcome Bot
 # Variables
 - `BOT_TOKEN` - Get From @BotFather
 
-- Credits
+# Credits
+
+🤖 Update Channel
+
+[![BX Botz](https://www.telegram.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BXBots/MT-WELCOME-BOT)
