@@ -1,6 +1,6 @@
 # MT-WELCOME-BOT
 ```
-Very Easy Bot || Telegaram Bot ||Simple Welcome Message Bot|| Mo Tech YouTube Channel
+Welcome Bot
 ```
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/BXBots/MT-WELCOME-BOT)
